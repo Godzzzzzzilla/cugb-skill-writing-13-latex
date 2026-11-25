@@ -1,0 +1,31 @@
+{
+ "issues": [
+  {
+   "kind": "escaping",
+   "char": "&",
+   "line": 6,
+   "detail": "\\title{Sparse Routing & Long Contexts}",
+   "fix": "\\&",
+   "evidence_id": "i1"
+  },
+  {
+   "kind": "escaping",
+   "char": "&",
+   "line": 11,
+   "detail": "We study sparse routing & its effect on long contexts, with a budget of 32k tokens.",
+   "fix": "\\&",
+   "evidence_id": "i2"
+  },
+  {
+   "kind": "escaping",
+   "char": "&",
+   "line": 34,
+   "detail": "\\caption{Cost relative to dense attention & measured on one A100.}",
+   "fix": "\\&",
+   "evidence_id": "i3"
+  }
+ ],
+ "by_kind": {
+  "escaping": 3
+ }
+}

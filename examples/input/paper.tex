@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\begin{document}
+
+\title{Sparse Routing & Long Contexts}
+\author{L. Chen}
+\maketitle
+
+\begin{abstract}
+We study sparse routing & its effect on long contexts, with a budget of 32k tokens.
+\end{abstract}
+
+\section{Method}
+The router keeps a fixed budget per token. See Figure~\ref{fig:arch} for the layout.
+Our implementation follows \cite{vasquez2022}.
+
+\begin{figure}[t]
+\centering
+\rule{4cm}{2cm}
+\caption{Router layout.}\label{fig:arch}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{ll}
+\toprule
+Setting & Cost \\
+\midrule
+Dense & 1.0 \\
+Sparse & 0.3 \\
+\bottomrule
+\end{tabular}
+\caption{Cost relative to dense attention & measured on one A100.}
+\end{table}
+
+\begin{itemize}
+\item The router is trained for 12 epochs.
+\item The learning rate is 3e-4.
+\end{itemize}
+
+\section{Results}
+We reach 92.1% exact match on the standard split, within 0.3 points of prior work.
+
+\end{document}

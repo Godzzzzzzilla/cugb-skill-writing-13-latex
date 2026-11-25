@@ -1,0 +1,280 @@
+{
+ "schema": "arm-skill-result/1.1",
+ "skill": {
+  "name": "writing-13-latex",
+  "version": "1.0.0",
+  "armkit": "1.1.0"
+ },
+ "case_id": "demo-latex-01",
+ "status": "success",
+ "status_reason": "static checks clean (and compiled, when an engine was present)",
+ "result": {
+  "issues": [
+   {
+    "kind": "escaping",
+    "char": "&",
+    "line": 6,
+    "detail": "\\title{Sparse Routing & Long Contexts}",
+    "fix": "\\&",
+    "evidence_id": "i1"
+   },
+   {
+    "kind": "escaping",
+    "char": "&",
+    "line": 11,
+    "detail": "We study sparse routing & its effect on long contexts, with a budget of 32k tokens.",
+    "fix": "\\&",
+    "evidence_id": "i2"
+   },
+   {
+    "kind": "escaping",
+    "char": "&",
+    "line": 34,
+    "detail": "\\caption{Cost relative to dense attention & measured on one A100.}",
+    "fix": "\\&",
+    "evidence_id": "i3"
+   }
+  ],
+  "by_kind": {
+   "escaping": 3
+  },
+  "fixed_tex": null,
+  "fixed_lines": [],
+  "static_checks": {
+   "escaping": 3,
+   "environments": 0,
+   "references": 0,
+   "citations": 0,
+   "packages": 0
+  },
+  "compile": {
+   "compiled": false,
+   "engine": null,
+   "error": "no TeX engine on PATH (latexmk/pdflatex/xelatex/lualatex/tectonic)"
+  },
+  "line_count": 45
+ },
+ "evidence": [
+  {
+   "id": "i1",
+   "claim": "escaping at line 6: \\title{Sparse Routing & Long Contexts}",
+   "anchor": {
+    "source": "inputs/paper.tex",
+    "char_start": 91,
+    "char_end": 130,
+    "quote": "\\title{Sparse Routing & Long Contexts}\r",
+    "page": 6,
+    "block_id": "L6"
+   },
+   "verified": true,
+   "note": "exact"
+  },
+  {
+   "id": "i2",
+   "claim": "escaping at line 11: We study sparse routing & its effect on long contexts, with a budget of 32k tokens.",
+   "anchor": {
+    "source": "inputs/paper.tex",
+    "char_start": 181,
+    "char_end": 265,
+    "quote": "We study sparse routing & its effect on long contexts, with a budget of 32k tokens.\r",
+    "page": 11,
+    "block_id": "L11"
+   },
+   "verified": true,
+   "note": "exact"
+  },
+  {
+   "id": "i3",
+   "claim": "escaping at line 34: \\caption{Cost relative to dense attention & measured on one A100.}",
+   "anchor": {
+    "source": "inputs/paper.tex",
+    "char_start": 695,
+    "char_end": 762,
+    "quote": "\\caption{Cost relative to dense attention & measured on one A100.}\r",
+    "page": 34,
+    "block_id": "L34"
+   },
+   "verified": true,
+   "note": "exact"
+  }
+ ],
+ "uncertainty": [
+  {
+   "item": "escaping at line 6",
+   "why": "\\title{Sparse Routing & Long Contexts}",
+   "resolved_by": "fix by hand; only escaping is repaired automatically"
+  },
+  {
+   "item": "escaping at line 11",
+   "why": "We study sparse routing & its effect on long contexts, with a budget of 32k tokens.",
+   "resolved_by": "fix by hand; only escaping is repaired automatically"
+  },
+  {
+   "item": "escaping at line 34",
+   "why": "\\caption{Cost relative to dense attention & measured on one A100.}",
+   "resolved_by": "fix by hand; only escaping is repaired automatically"
+  }
+ ],
+ "limits": [
+  "no TeX engine was available; the source was checked statically only"
+ ],
+ "audit": {
+  "checks": [
+   {
+    "id": "tex-found",
+    "ok": true,
+    "detail": "1 .tex file(s)",
+    "weight": 1.0,
+    "critical": true
+   },
+   {
+    "id": "escaping-checked",
+    "ok": true,
+    "detail": "3 unescaped characters",
+    "weight": 1.0,
+    "critical": false
+   },
+   {
+    "id": "environments-balanced",
+    "ok": true,
+    "detail": "0 environment problem(s)",
+    "weight": 1.0,
+    "critical": false
+   },
+   {
+    "id": "references-resolve",
+    "ok": true,
+    "detail": "0 undefined \\ref",
+    "weight": 1.0,
+    "critical": false
+   },
+   {
+    "id": "citations-resolve",
+    "ok": true,
+    "detail": "0 missing bib entries",
+    "weight": 0.8,
+    "critical": false
+   },
+   {
+    "id": "packages-declared",
+    "ok": true,
+    "detail": "0 missing package(s)",
+    "weight": 0.8,
+    "critical": false
+   },
+   {
+    "id": "compile-attempted",
+    "ok": true,
+    "detail": "no engine available",
+    "weight": 1.0,
+    "critical": false
+   },
+   {
+    "id": "anchors-verified",
+    "ok": true,
+    "detail": "3/3 issue and repair locations re-slice",
+    "weight": 1.0,
+    "critical": true
+   }
+  ],
+  "passed": 8,
+  "total": 8,
+  "ratio": 1.0,
+  "failed_critical": []
+ },
+ "artifacts": [
+  {
+   "path": "inputs/paper.tex",
+   "kind": "data",
+   "exists": true,
+   "bytes": 1011,
+   "sha256": "78efde598dd252df8c65f0f28d3f2d1ce0ad0b57f17e70982856298abb214d9b",
+   "note": "source, copied verbatim"
+  },
+  {
+   "path": "latex_report.md",
+   "kind": "log",
+   "exists": true,
+   "bytes": 343,
+   "sha256": "f3df3f25c29c282b7bbdbb67095b94c88d3c88bcc793b89663708b381fa26695",
+   "note": "issues grouped by kind"
+  }
+ ],
+ "contract": {
+  "declared_fields": [
+   "issues",
+   "fixed_tex",
+   "compile",
+   "static_checks"
+  ],
+  "fields": {
+   "issues": [
+    {
+     "kind": "escaping",
+     "char": "&",
+     "line": 6,
+     "detail": "\\title{Sparse Routing & Long Contexts}",
+     "fix": "\\&",
+     "evidence_id": "i1"
+    },
+    {
+     "kind": "escaping",
+     "char": "&",
+     "line": 11,
+     "detail": "We study sparse routing & its effect on long contexts, with a budget of 32k tokens.",
+     "fix": "\\&",
+     "evidence_id": "i2"
+    },
+    {
+     "kind": "escaping",
+     "char": "&",
+     "line": 34,
+     "detail": "\\caption{Cost relative to dense attention & measured on one A100.}",
+     "fix": "\\&",
+     "evidence_id": "i3"
+    }
+   ],
+   "fixed_tex": null,
+   "compile": {
+    "compiled": false,
+    "engine": null,
+    "error": "no TeX engine on PATH (latexmk/pdflatex/xelatex/lualatex/tectonic)"
+   },
+   "static_checks": {
+    "escaping": 3,
+    "environments": 0,
+    "references": 0,
+    "citations": 0,
+    "packages": 0
+   }
+  },
+  "unmapped": [],
+  "raw": {
+   "fields": [
+    "issues",
+    "fixed_tex",
+    "compile",
+    "static_checks"
+   ]
+  }
+ },
+ "run": {
+  "started_at": "2026-11-25T07:55:13Z",
+  "finished_at": "2026-11-25T07:55:13Z",
+  "argv": [
+   "scripts/run.py",
+   "--input",
+   "examples/case.json",
+   "--output",
+   "C:\\Users\\zcy\\WorkBuddy\\2026-11-25-15-07-35\\arena\\tasks\\writing-13-latex\\app_output"
+  ],
+  "python": "3.13.14",
+  "cwd": "C:\\Users\\zcy\\WorkBuddy\\2026-11-25-15-07-35\\arena\\tasks\\writing-13-latex",
+  "compile": {
+   "compiled": false,
+   "engine": null,
+   "error": "no TeX engine on PATH (latexmk/pdflatex/xelatex/lualatex/tectonic)"
+  },
+  "case_notes": []
+ }
+}

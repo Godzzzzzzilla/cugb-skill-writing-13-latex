@@ -1,0 +1,48 @@
+{
+ "deviations_from_paper": [
+  {
+   "target": "evidence anchors re-slice exactly",
+   "metric": "custom",
+   "reference_value": 1.0,
+   "actual_value": 1.0,
+   "score": 1.0,
+   "tolerance": 0.0,
+   "verifier_script": "scripts/verify.py",
+   "evidence_artifact": "result",
+   "explanation": "Every evidence item is a character range into an emitted text file; verify.py re-slices it and recomputes the share that still matches."
+  }
+ ],
+ "envelope": [
+  {
+   "condition": "escaping errors only",
+   "status": "in envelope",
+   "note": "repaired deterministically; 3 fixes on the demo, clean after"
+  },
+  {
+   "condition": "structural errors (environments, refs, citations, packages)",
+   "status": "reported",
+   "note": "detected with line numbers, not auto-repaired"
+  },
+  {
+   "condition": "no TeX engine available",
+   "status": "in envelope",
+   "note": "static checks carry the verdict; compiled:false with the reason"
+  }
+ ],
+ "failure_modes": [
+  {
+   "mode": "stray & inside tabular",
+   "impact": "not flagged: the region is masked before the escape scan"
+  },
+  {
+   "mode": "region masking collapsing newlines",
+   "impact": "line numbers shift; fixed by blanking while preserving newlines"
+  },
+  {
+   "mode": "compiler absent",
+   "impact": "compiled:false and the engine list, never a rejected case"
+  }
+ ],
+ "sensitivity": [],
+ "note": "This is a skill-authoring challenge: the targets are the demonstration benchmark and the audit, not a paper's reported numbers."
+}

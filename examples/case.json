@@ -1,0 +1,6 @@
+{
+ "case_id": "demo-latex-01",
+ "task": "Check and repair the LaTeX source: escaping, environment balance, reference integrity, package requirements. Compile if an engine is available; never fail the case because it is not.",
+ "materials": ["paper.tex", "refs.bib"],
+ "output_contract": {"fields": ["issues", "fixed_tex", "compile", "static_checks"]}
+}

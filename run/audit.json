@@ -1,0 +1,64 @@
+{
+ "checks": [
+  {
+   "id": "tex-found",
+   "ok": true,
+   "detail": "1 .tex file(s)",
+   "weight": 1.0,
+   "critical": true
+  },
+  {
+   "id": "escaping-checked",
+   "ok": true,
+   "detail": "3 unescaped characters",
+   "weight": 1.0,
+   "critical": false
+  },
+  {
+   "id": "environments-balanced",
+   "ok": true,
+   "detail": "0 environment problem(s)",
+   "weight": 1.0,
+   "critical": false
+  },
+  {
+   "id": "references-resolve",
+   "ok": true,
+   "detail": "0 undefined \\ref",
+   "weight": 1.0,
+   "critical": false
+  },
+  {
+   "id": "citations-resolve",
+   "ok": true,
+   "detail": "0 missing bib entries",
+   "weight": 0.8,
+   "critical": false
+  },
+  {
+   "id": "packages-declared",
+   "ok": true,
+   "detail": "0 missing package(s)",
+   "weight": 0.8,
+   "critical": false
+  },
+  {
+   "id": "compile-attempted",
+   "ok": true,
+   "detail": "no engine available",
+   "weight": 1.0,
+   "critical": false
+  },
+  {
+   "id": "anchors-verified",
+   "ok": true,
+   "detail": "3/3 issue and repair locations re-slice",
+   "weight": 1.0,
+   "critical": true
+  }
+ ],
+ "passed": 8,
+ "total": 8,
+ "ratio": 1.0,
+ "failed_critical": []
+}

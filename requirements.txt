@@ -1,0 +1,2 @@
+# Intentionally empty: standard library only.
+# Optional when present: pypdf, pdfminer.six, poppler pdftotext.
